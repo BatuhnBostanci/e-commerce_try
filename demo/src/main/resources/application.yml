@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: javaodev
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/javaakademi15?serverTimezone=UTC&useSSL=false
+    username: SYS
+    password: 123SYS
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL8Dialect
