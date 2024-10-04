@@ -1,0 +1,20 @@
+//üst alan
+
+@Entity
+public class BasketProduct {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private int count;
+    private double basketProductAmount;
+
+    @ManyToOne
+    private Basket basket;
+
+    @ManyToOne
+    private Product product;
+
+    // Getters and Setters
+}
