@@ -7,12 +7,16 @@ import java.util.List;
 @Entity
 public class Basket {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int basketId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    private String basketName;
-    @OneToMany
-    private List<Product> productList;
+    private Long userId;
+    private double basketAmount;
+
+    @OneToMany(mappedBy = "basket", cascade = CascadeType.ALL)
+    private List<BasketProduct> basketProducts;
+
+    // Getters and Setters
 
     public Basket() {
     }
