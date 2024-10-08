@@ -19,6 +19,27 @@ public class ProductService {
     @Autowired
     private CategoryRepository categoryRepository;
 
+
+
+@Autowired
+    private ProductRepository productRepository;
+
+    public List<Product> getProductsByCategory(Category category) {
+        return productRepository.findByCategory(category);
+    }
+
+    public Product saveProduct(Product product) {
+        return productRepository.save(product);
+    }
+
+    public void deleteProduct(Long id) {
+        productRepository.deleteById(id);
+    }
+
+
+
+
+    
     public ProductResponse createProduct(ProductRequest request) {
         Product product = toEntity(request);
 
