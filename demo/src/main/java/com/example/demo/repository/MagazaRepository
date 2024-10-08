@@ -1,0 +1,3 @@
+@Repository
+public interface MagazaRepository extends JpaRepository<Magaza, Long> {
+}
