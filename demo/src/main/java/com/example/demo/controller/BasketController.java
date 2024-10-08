@@ -17,6 +17,35 @@ public class BasketController {
     public BasketResponse addProductInBasket(@RequestBody BasketRequest request, @PathVariable int id){
         return basketService.addProductInBasket(request,id);
     }
+
+
+
+@Autowired
+    private BasketService basketService;
+
+    @GetMapping("/user/{userId}")
+    public List<Basket> getBasketsByUserId(@PathVariable Long userId) {
+        return basketService.getBasketsByUserId(userId);
+    }
+
+    @PostMapping
+    public Basket saveBasket(@RequestBody Basket basket) {
+        return basketService.saveBasket(basket);
+    }
+
+    @PostMapping("/addProduct")
+    public BasketProduct addProductToBasket(@RequestBody BasketProduct basketProduct) {
+        return basketService.addProductToBasket(basketProduct);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteBasket(@PathVariable Long id) {
+        basketService.deleteBasket(id);
+    }
+
+
+
+    
     @GetMapping
     public List<BasketResponse> getAllItems(){
         return basketService.getAllProductsInBasket();
