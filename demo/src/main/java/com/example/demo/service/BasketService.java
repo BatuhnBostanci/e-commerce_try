@@ -23,6 +23,33 @@ public class BasketService {
     @Autowired
     private UserRepository userRepository;
 
+
+
+    @Autowired
+    private BasketRepository basketRepository;
+
+    @Autowired
+    private BasketProductRepository basketProductRepository;
+
+    public List<Basket> getBasketsByUserId(Long userId) {
+        return basketRepository.findByUserId(userId);
+    }
+
+    public Basket saveBasket(Basket basket) {
+        return basketRepository.save(basket);
+    }
+
+    public BasketProduct addProductToBasket(BasketProduct basketProduct) {
+        return basketProductRepository.save(basketProduct);
+    }
+
+    public void deleteBasket(Long id) {
+        basketRepository.deleteById(id);
+    }
+    
+
+    
+
     public BasketResponse addProductInBasket(BasketRequest request, int userid) {
         Basket basket = basketRepository.findById(userid).orElseThrow(() -> new RuntimeException("Basket not found"));
 
