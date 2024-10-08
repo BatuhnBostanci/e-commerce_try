@@ -8,16 +8,15 @@ import java.util.List;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int poductId;
-
     private Long id;
 
-    
+    private String productName;
     private double price;
 
-    private String productName;
-    @OneToMany
-    private List<Category> categoryList;
+    @ManyToOne
+    private Category category;
+
+    // Getters and Setters
 
     public Product(int poductId, String productName, List<Category> categoryList) {
         this.poductId = poductId;
