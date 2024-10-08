@@ -7,8 +7,13 @@ import java.util.List;
 @Entity
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int poductId;
+
+    private Long id;
+
+    
+    private double price;
 
     private String productName;
     @OneToMany
@@ -19,6 +24,11 @@ public class Product {
         this.productName = productName;
         this.categoryList = categoryList;
     }
+
+     // Getters and Setters
+
+    @ManyToOne
+    private Category category;
 
     public Product() {
 
